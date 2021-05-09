@@ -1,0 +1,230 @@
+body {
+    /* remove margins and scroll bars */
+    margin: 0;
+    /* overflow: hidden; */
+  
+    /* style text */
+    text-align: center;
+    font-size: 12px;
+    font-family: Sans-Serif;
+  
+    /* color text */
+    color: #444;
+  }
+  
+  h1 {
+    /* position the heading */
+    position: absolute;
+    width: 100%;
+  
+    /* make sure that the heading is drawn on top */
+    z-index: 1;
+  }
+  
+  #scene-container {
+    /* tell our scene container to take up the full page */
+    /* position: absolute; */
+    width: 100%;
+    height: 500px;
+  
+    /*
+      Set the container's background color to the same as the scene's
+      background to prevent flashing on load
+    */
+    /* background-color: skyblue; */
+  }
+
+  #circle{
+    position: absolute;
+    background: transparent;
+    width: 180px;
+    height: 180px;
+
+    top: 80px;
+    border: 5px solid #fff;
+    border-radius: 50%;
+    /* left: 50%; */
+    left: 0;
+    right: 0;
+    margin: auto;
+    /* background: black; */
+    z-index: 999;
+}
+
+.circle6-draw-final{
+  animation: pulse 2s 5!important;
+}
+
+
+.circle6-draw {
+  background: #182983!important;
+  color:white!important;
+  border-top: 5px #182983 solid!important;
+  border-right: 5px #182983 solid!important;
+  border-bottom: 5px #182983 solid!important;
+  border-left: 5px #182983 solid!important;
+  animation: pulse 2s 2;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+
+	70% {
+		transform: scale(1.2);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(1);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+}
+
+.circle6 {
+  display: inline-block;
+  margin:0px 10px;
+  font-size:25px;
+  /* position: absolute; */
+  /* top: 50%; */
+  /* left: 50%; */
+  height: 50px;
+  width: 50px;
+  background:#eee;
+  /* background: #008744; */
+  color:white;
+  /* margin: -25px 0 0 -25px;s */
+  border: 4px rgba(0, 0, 0, 0.25) solid;
+  border-top: 5px #fff solid;
+  border-right: 5px #182983 solid;
+  border-bottom: 5px #182983 solid;
+  border-left: 5px #fff solid;
+  border-radius: 50%;
+  text-align:center;
+  line-height:50px;
+  font-weight:bold;
+
+}
+
+.circle6-animate{
+  -webkit-animation: spin6 0.8s infinite linear;
+          animation: spin6 0.8s infinite linear;
+}
+
+@-webkit-keyframes spin6 {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+@keyframes spin6 {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+
+#balls{
+  position:relative;
+  /* padding:100px; */
+  width: 600px;
+  margin: auto;
+}
+
+#ball-result{
+  width:300px;
+  height:300px;
+  background:blue;
+  color:white;
+  text-align: center;
+  border: 1px solid blue;
+  position:absolute;
+  z-index:999;
+  text-align: left;
+  border-radius:50%;
+  line-height: 300px;
+  font-size:30px;
+  transform: scale(0.1);
+    /* position: absolute; */
+    top: calc(50vh - (/* height */300px / 2));
+    left: calc(50vw - (/* width */300px / 2)); 
+    -webkit-animation: spin6 2s infinite linear;
+    animation: zoomresult 2s infinite linear;
+}
+
+@keyframes zoomresult {
+  0% {
+      transform: scale(0.0) rotate3d(1,1,1,360deg);
+      -webkit-transform: scale(0.0) rotate3d(1,1,1,360deg);
+  }
+  100% {
+      transform: scale(1.0) rotate3d(1,1,1,0deg);
+      -webkit-transform: scale(1.0) rotate3d(1,1,1,0deg);
+  }
+}
+
+.ball {
+	display: block;
+	position: relative;
+	width: 75px;
+	height: 75px;
+	background: red;
+	border-radius: 50%;
+  background: url(../assets/textures/balls/ball1.png);
+  background-size: cover;
+  /* background: -webkit-radial-gradient(25px 25px, circle, red, #000);
+	background: -moz-radial-gradient(25px 25px, circle, red, #000);
+	background: radial-gradient(25px 25px, circle, red, #000); */
+	/*position: absolute;*/
+	float: left;
+}
+
+.ball-number {
+	top: -34px;
+  left: 0;
+  right: 0;
+  /* margin: auto; */
+	font-size: 45px;
+	color: #fff;
+	position: absolute;
+}
+
+.ball-animation {
+	-webkit-animation: spin 1750ms linear infinite, moveRightToLeft 2s linear infinite;
+	-moz-animation: spin 1750ms linear infinite, moveRightToLeft 2s linear infinite;
+	-ms-animation: spin 1750ms linear infinite, moveRightToLeft 2s linear infinite;
+	animation: spin 1750ms linear infinite, moveRightToLeft 2s linear;
+
+	-webkit-transition: all 1.75s ease;
+	transition: all 1.75s ease;
+}
+
+@keyframes spin {
+	from { transform: rotate(360deg); }
+	to { transform: rotate(0deg); }
+}
+
+@keyframes moveRightToLeft {
+	0% { top: -50px; left: 200px; }
+	10% { top: -40px; left: 180px; }
+	20% { top: -25px; left: 150px; }
+	30% { top: -25px; left: 100px; }
+	100% { left: 0%; }
+}
+
+

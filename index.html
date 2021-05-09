@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3dballs</title>
+    <link href="./styles/main.css" rel="stylesheet" type="text/css" />
+    <script src="./vendor/threejs/build/three.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"></script>
+    <script src="./vendor/cannonjs/build/cannon.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
+
+    <style>
+        body{
+            background: rgb(0,153,247);
+            background: radial-gradient(circle, rgba(0,153,247,1) 0%,rgba(0,153,247,1) 100%, rgba(241,23,18,1) 100%);
+        }
+
+        /* #countdown{
+            font-size: 100px;
+            color:white;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        } */
+
+
+        .effect {
+            height:0;
+            width:0;
+            position:fixed;
+            top:0;
+            bottom:0;
+            right:0;
+            left:0;
+            margin:auto;
+            overflow:hidden;
+        }
+        .text {
+            background-color:rgba(255,255,255,0.6);
+            width:100%;
+            text-align:center;
+            font-size:100px;
+            color:#fff;
+            font-weignt:bold;
+            text-shadow: 1px 1px 0 #000000;
+            font-family:arial;
+            padding:20px 0;
+            transition:all 0.2s linear;
+            position:absolute;
+            top:50%;
+            transform: translateY(-50%);
+        }
+        .text-effect {
+            padding:10px 0;
+            font-size:300px;
+        }
+        .animation {
+            /*transition: all 1s linear;*/
+            animation-name: background;
+            animation-duration: 1.5s;
+            animation-timing-function: linear;
+            animation-delay: 0s;
+            animation-iteration-count: 1;
+            }
+
+        @keyframes background {
+            0%   {height:100%; width:100%; opacity:1}
+            80% {height:100%; width:100%; opacity:1}
+            99.999% {height:100%; width:100%; opacity:0}
+            100% {height:0; width:0; opacity:0}
+        }
+    </style>
+
+    <script>
+
+document.addEventListener('DOMContentLoaded', function(){
+    var countdown = 5;
+        var countdownId = setInterval(function(){
+            document.getElementById("countdown").innerHTML = countdown;
+            countdown--;
+            if(countdown<=-1){
+                document.getElementById("effect").style.display = 'none';
+                clearInterval(countdownId);
+            }
+
+            document.getElementById("effect").classList.add("animation");
+            document.getElementById("countdown").classList.add("text-effect");
+            setTimeout(function () {
+                document.getElementById("effect").classList.remove("animation");
+                document.getElementById("countdown").classList.remove("text-effect");
+            }, 500); 
+        },1000);
+}, false);
+    
+    </script>
+
+</head>
+
+<body>
+    <script type="module" src="./src/main.js"></script>
+    <div id="effect" class="effect">
+        <div class="text" id="countdown" ></div>
+    </div>
+    
+    <div id="scene-container">
+    </div>
+    <!-- <div id="ballsa">
+        <div class="circle6 circle6-animate circle6-animate1">&nbsp;</div>
+        <div class="circle6 circle6-animate circle6-animate2">&nbsp;</div>
+        <div class="circle6 circle6-animate circle6-animate3">&nbsp;</div>
+        <div class="circle6 circle6-animate circle6-animate4">&nbsp;</div>
+        <div class="circle6 circle6-animate circle6-animate5">&nbsp;</div>
+        <div class="circle6 circle6-animate circle6-animate6">&nbsp;</div>
+    </div> -->
+    <!-- <div id="ball-result">10</div> -->
+
+    <!-- <div id="balls"></div> -->
+</body>
+
+</html>
