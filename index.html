@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3dballs</title>
+    <link href="./styles/main.css" rel="stylesheet" type="text/css" />
+    <script src="./vendor/threejs/build/three.js"></script>
+    <script src="./vendor/threejs/examples/js/controls/OrbitControls.js"></script>
+    <script src="./vendor/cannonjs/build/cannon.js"></script>
+</head>
+
+<body>
+    <script type="module" src="./src/main.js"></script>
+    <div id="scene-container"></div>
+
+    <div id="picks">
+        <div class="circle6 circle6-animate circle6-animate1">&nbsp;</div>
+        <div class="circle6 circle6-animate circle6-animate2">&nbsp;</div>
+        <div class="circle6 circle6-animate circle6-animate3">&nbsp;</div>
+        <div class="circle6 circle6-animate circle6-animate4">&nbsp;</div>
+        <div class="circle6 circle6-animate circle6-animate5">&nbsp;</div>
+        <div class="circle6 circle6-animate circle6-animate6">&nbsp;</div>
+    </div>
+
+    <input type="hidden" value="40" id="ballset" />
+</body>
+
+</html>
